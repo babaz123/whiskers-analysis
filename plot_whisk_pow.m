@@ -1,4 +1,4 @@
-function plot_whisk_pow(data_table,varargin)
+function [freq_pow,conditions,all_combos, ntrials] = plot_whisk_pow(data_table,varargin)
 
 % defaults parameters
 params = struct(...
@@ -59,6 +59,7 @@ for combo = 1:num_combos
     for i = 1:length(varied_conds)
         leg_str{combo} = [leg_str{combo} strrep(sprintf('%s=%d ',varied_conds{i},all_combos(combo,varied_conds_idx(i))),'_','\_')];
     end
+    leg_str{combo} = sprintf('%s, N=%d',leg_str{combo},ntrials(combo));
 end
 
 figure;
