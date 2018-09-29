@@ -76,27 +76,27 @@ figure;
 % bar_data_hold = [low_hold(:,1) med_hold(:,1) hi_hold(:,1)]';
 % bar_err_hold  = [low_hold(:,2) med_hold(:,2) hi_hold(:,2)]';
 
-bar_data = [whisk_all(:,1)'; whisk_hold(:,1)'];
-bar_err  = [whisk_all(:,2)'; whisk_hold(:,2)'];
+bar_data = [whisk_all(:,1)' whisk_hold(:,1)'];
+bar_err  = [whisk_all(:,2)' whisk_hold(:,2)'];
 % bar_data_hold= whisk_hold(:,1);
 % bar_err_hold = whisk_hold(:,2);
 
 % subplot(2,1,1);
 % barwitherr(bar_err_all, bar_data_all);
-barwitherr(bar_err,bar_data);
+barwitherr(bar_err,bar
 
-    set(gca,'XTickLabel',{'entire trials', 'hold time'})
+    set(gca,'XTickLabel',{'[5-12]Hz Power'})
     legend(leg_str)
     ylabel('mean power');
-    title('mean power in [5-12]Hz band');
-%     
-% subplot(2,1,2);
-% barwitherr(bar_err_hold, bar_data_hold);
-% 
-%     set(gca,'XTickLabel',{'[5-12]Hz Power'})
-%     legend(leg_str)
-%     ylabel('mean power');
-%     title('mean power for hold time');
+    title('mean power for entire trials');
+    
+subplot(2,1,2);
+barwitherr(bar_err_hold, bar_data_hold);
+
+    set(gca,'XTickLabel',{'[5-12]Hz Power'})
+    legend(leg_str)
+    ylabel('mean power');
+    title('mean power for hold time');
     
 note_str = {};    
 for i = 1:length(other_conds)
